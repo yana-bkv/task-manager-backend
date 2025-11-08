@@ -1,0 +1,23 @@
+{
+  "name": "task-manager-backend",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/main.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "express": "^5.1.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.5.3"
+  },
+  "private": true,
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "mongoose": "^8.19.2"
+  }
+}

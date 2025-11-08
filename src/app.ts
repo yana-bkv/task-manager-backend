@@ -1,0 +1,22 @@
+import express from 'express';
+import {taskRouter} from "./routes/task.routes";
+import cors from 'cors';
+
+export function createExpressApp() {
+    const app = express();
+    app.use(cors());
+
+    app.use(express.json())
+    app.use((_req, res, next) => {
+        console.log("middleware")
+       res.setHeader('Access-Control-Allow-Origin', process.env.CLIENT_URI || 'http://localhost:3000');
+       // res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+       res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+       next();
+    })
+
+    app.get('/test/', (_req,res)=>{res.json({message:'Server works! Test.'})})
+    app.use('/api/tasks', taskRouter)
+
+    return app;
+}
