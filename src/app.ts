@@ -4,9 +4,14 @@ import cors from 'cors';
 
 export function createExpressApp() {
     const app = express();
-    app.use(cors());
+
+    const corsOptions = {
+        origin: process.env.CORS_OrIGIN ?? 'http://localhost:3000',
+        optionsSuccessStatus: 200
+    }
 
     app.use(express.json())
+    app.use(cors(corsOptions));
     app.use((_req, res, next) => {
         console.log("middleware")
        res.setHeader('Access-Control-Allow-Origin', process.env.CLIENT_URI || 'http://localhost:3000');
