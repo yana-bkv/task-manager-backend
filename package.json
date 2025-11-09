@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "tsx watch src/main.ts"
+    "dev": "tsx watch src/main.ts",
+    "start": "vercel dev"
   },
   "devDependencies": {
     "@types/express": "^5.0.5",
@@ -16,6 +17,7 @@
   "private": true,
   "dependencies": {
     "@types/cors": "^2.8.19",
+    "@vercel/node": "^5.5.5",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "mongoose": "^8.19.2"

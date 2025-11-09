@@ -1,23 +1,29 @@
-import {createExpressApp} from "../app";
+import { createExpressApp } from "../app";
 import connectDB from "../db/db";
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-let dbReady: Promise<void> | null = null
+let dbReady: Promise<void> | null = null;
+
 function ensureDB() {
     if (!dbReady) {
         dbReady = connectDB().catch(err => {
-            dbReady = null
-            throw err
-        })
+            dbReady = null;
+            throw err;
+        });
     }
-    return dbReady
+    return dbReady;
 }
 
-let app: ReturnType<typeof createExpressApp> | null = null
+let app: ReturnType<typeof createExpressApp> | null = null;
 
-export default async function handler(req: any, res: any) {
-    await ensureDB()
+// ✅ Основная функция для Vercel
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+    await ensureDB();
+
     if (!app) {
-        app = createExpressApp()
+        app = createExpressApp();
     }
-    return app(req,res)
+
+    // 👉 Express в Vercel нужно вызывать именно так
+    return app(req, res);
 }
