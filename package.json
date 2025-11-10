@@ -2,13 +2,13 @@
   "name": "task-manager-backend",
   "version": "1.0.0",
   "description": "",
-
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch src/main.ts",
     "start": "node dist/main.js"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.5",
     "express": "^5.1.0",
     "tsx": "^4.20.6",
@@ -17,9 +17,12 @@
   "private": true,
   "dependencies": {
     "@types/cors": "^2.8.19",
-    "@vercel/node": "^5.5.5",
+    "@vercel/node": "^2.3.0",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "mongoose": "^8.19.2"
+    "mongoose": "^8.19.2",
+    "node-fetch": "^2.6.7",
+    "zod": "^4.1.12"
   }
 }

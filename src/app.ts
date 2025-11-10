@@ -1,5 +1,6 @@
 import express from 'express';
-import {taskRouter} from "./routes/task.routes";
+import {taskRouter} from "./features/task/task.routes";
+import {authRouter} from "./features/auth/auth.routes";
 import cors from 'cors';
 
 export function createExpressApp() {
@@ -22,6 +23,7 @@ export function createExpressApp() {
 
     app.get('/test/', (_req,res)=>{res.json({message:'Server works! Test.'})})
     app.use('/api/tasks', taskRouter)
+    app.use('/api/auth', authRouter)
 
     return app;
 }

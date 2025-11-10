@@ -1,5 +1,5 @@
 import { Request, Response, RequestHandler } from 'express'
-import {TaskService} from "../services/task.service";
+import {TaskService} from "./task.service";
 
 export class TaskController {
     constructor(private taskService: TaskService) {}

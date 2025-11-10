@@ -1,4 +1,4 @@
-import connectDB from './db/db';
+import connectDB from './core/db/db';
 import {createExpressApp} from './app';
 
 async function main() {
