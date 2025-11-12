@@ -31,7 +31,7 @@ export class AuthService implements AuthServiceInterface {
         }
 
         const encryptedPass = await bcrypt.hash(body.password, Number(process.env.SECRET_SALT))
-        const newUser = await UserModel.create({email: body.email, password: encryptedPass, name: body?.name})
+        const newUser = await UserModel.create({email: body.email, password: encryptedPass, name: body.name})
 
         return newUser.toObject();
     }
