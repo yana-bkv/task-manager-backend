@@ -1,5 +1,5 @@
 import { createExpressApp } from "../app";
-import connectDB from "../db/db";
+import connectDB from "../core/db/db";
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 let dbReady: Promise<void> | null = null;
